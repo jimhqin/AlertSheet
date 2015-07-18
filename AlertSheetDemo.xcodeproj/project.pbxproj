@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D45C17FE1B59D201001072F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C17FD1B59D201001072F8 /* AppDelegate.swift */; };
-		D45C18001B59D201001072F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C17FF1B59D201001072F8 /* ViewController.swift */; };
-		D45C18031B59D201001072F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45C18011B59D201001072F8 /* Main.storyboard */; };
+		D45C18001B59D201001072F8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C17FF1B59D201001072F8 /* RootViewController.swift */; };
 		D45C18051B59D201001072F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45C18041B59D201001072F8 /* Images.xcassets */; };
 		D45C18081B59D201001072F8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45C18061B59D201001072F8 /* LaunchScreen.xib */; };
 		D45C18141B59D201001072F8 /* AlertSheetDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C18131B59D201001072F8 /* AlertSheetDemoTests.swift */; };
+		D45C18201B59DD48001072F8 /* AlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C181D1B59DD48001072F8 /* AlertSheet.swift */; };
+		D45C18211B59DD48001072F8 /* AlertSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C181E1B59DD48001072F8 /* AlertSheetButton.swift */; };
+		D45C18221B59DD48001072F8 /* AlertSheetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C181F1B59DD48001072F8 /* AlertSheetLabel.swift */; };
+		D45C18241B59E3A9001072F8 /* DemoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C18231B59E3A9001072F8 /* DemoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +32,16 @@
 		D45C17F81B59D201001072F8 /* AlertSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C17FC1B59D201001072F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45C17FD1B59D201001072F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D45C17FF1B59D201001072F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D45C18021B59D201001072F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D45C17FF1B59D201001072F8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D45C18041B59D201001072F8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D45C18071B59D201001072F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D45C180D1B59D201001072F8 /* AlertSheetDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlertSheetDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C18121B59D201001072F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45C18131B59D201001072F8 /* AlertSheetDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetDemoTests.swift; sourceTree = "<group>"; };
+		D45C181D1B59DD48001072F8 /* AlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSheet.swift; sourceTree = "<group>"; };
+		D45C181E1B59DD48001072F8 /* AlertSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSheetButton.swift; sourceTree = "<group>"; };
+		D45C181F1B59DD48001072F8 /* AlertSheetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSheetLabel.swift; sourceTree = "<group>"; };
+		D45C18231B59E3A9001072F8 /* DemoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				D45C17FD1B59D201001072F8 /* AppDelegate.swift */,
-				D45C17FF1B59D201001072F8 /* ViewController.swift */,
-				D45C18011B59D201001072F8 /* Main.storyboard */,
+				D45C17FF1B59D201001072F8 /* RootViewController.swift */,
+				D45C18231B59E3A9001072F8 /* DemoButton.swift */,
+				D45C18251B59EA4B001072F8 /* AlertSheet */,
 				D45C18041B59D201001072F8 /* Images.xcassets */,
 				D45C18061B59D201001072F8 /* LaunchScreen.xib */,
 				D45C17FB1B59D201001072F8 /* Supporting Files */,
@@ -110,6 +117,16 @@
 				D45C18121B59D201001072F8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D45C18251B59EA4B001072F8 /* AlertSheet */ = {
+			isa = PBXGroup;
+			children = (
+				D45C181D1B59DD48001072F8 /* AlertSheet.swift */,
+				D45C181E1B59DD48001072F8 /* AlertSheetButton.swift */,
+				D45C181F1B59DD48001072F8 /* AlertSheetLabel.swift */,
+			);
+			name = AlertSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +173,7 @@
 		D45C17F01B59D201001072F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = jimqin;
 				TargetAttributes = {
@@ -192,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45C18031B59D201001072F8 /* Main.storyboard in Resources */,
 				D45C18081B59D201001072F8 /* LaunchScreen.xib in Resources */,
 				D45C18051B59D201001072F8 /* Images.xcassets in Resources */,
 			);
@@ -212,7 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45C18001B59D201001072F8 /* ViewController.swift in Sources */,
+				D45C18001B59D201001072F8 /* RootViewController.swift in Sources */,
+				D45C18221B59DD48001072F8 /* AlertSheetLabel.swift in Sources */,
+				D45C18201B59DD48001072F8 /* AlertSheet.swift in Sources */,
+				D45C18211B59DD48001072F8 /* AlertSheetButton.swift in Sources */,
+				D45C18241B59E3A9001072F8 /* DemoButton.swift in Sources */,
 				D45C17FE1B59D201001072F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +257,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D45C18011B59D201001072F8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D45C18021B59D201001072F8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D45C18061B59D201001072F8 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -409,6 +422,7 @@
 				D45C18191B59D201001072F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D45C181A1B59D201001072F8 /* Build configuration list for PBXNativeTarget "AlertSheetDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +431,7 @@
 				D45C181C1B59D201001072F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
