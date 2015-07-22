@@ -179,7 +179,7 @@ class AlertSheet: UIView {
 
     private func configureSheetAppearance() {
         backgroundColor = UIColor.clearColor()
-        opaque = true
+        alpha = 0.0
         hidden = true
     }
 
@@ -386,6 +386,7 @@ class AlertSheet: UIView {
             options: UIViewAnimationOptions.CurveEaseInOut,
             animations: { () -> Void in
                 self.frame = self.showFrame()
+                self.alpha = 1.0
             }, completion: nil)
     }
 
@@ -406,6 +407,7 @@ class AlertSheet: UIView {
             options: UIViewAnimationOptions.CurveEaseInOut,
             animations: { () -> Void in
                 self.frame = self.dismissFrame()
+                self.alpha = 0.0
             }) { (finished: Bool) -> Void in
                 if finished {
                     self.hidden = true
