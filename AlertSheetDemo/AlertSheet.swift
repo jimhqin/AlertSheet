@@ -319,6 +319,7 @@ class AlertSheet: UIView {
     private func titleLabel(title: String) -> UILabel {
         let titleLabel = AlertSheetLabel()
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+        titleLabel.numberOfLines = 1
         titleLabel.tag = Tags.titleLabel
         titleLabel.text = title
 
