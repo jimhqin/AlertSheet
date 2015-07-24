@@ -46,3 +46,4 @@ func alertSheet(alertSheet: AlertSheet, clickedButtonAtIndex buttonIndex: Int) {
 }
 ```
 # License
+AlertSheet is released under the MIT license. See [LICENSE](https://github.com/jimhqin/AlertSheet/blob/master/LICENSE) for details.
