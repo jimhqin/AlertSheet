@@ -17,7 +17,7 @@ AlertSheet is a user interface alert inspired by UIActionSheet.
 
 ## Installation
 
-
+Drag and drop AlertSheet.swift, AlertSheetButton.swift and AlertSheetLabel.swift into your project.
 
 ## Usage
 
