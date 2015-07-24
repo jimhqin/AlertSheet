@@ -1,6 +1,8 @@
 # AlertSheet
 
-AlertSheet is a user interface alert inspired by UIActionSheet.
+AlertSheet is a user interface alert inspired by UIActionSheet. 
+
+<img src="Screenshots/AlertSheet.gif" width="210" height="320" />
 
 ## Features
 
@@ -8,8 +10,6 @@ AlertSheet is a user interface alert inspired by UIActionSheet.
 - [x] Customizable
 - [x] Simple and lightweight
 - [x] Future proofed for all screen sizes
-
-![demo](Screenshots/AlertSheet.gif)
 
 ## Requirements
 
