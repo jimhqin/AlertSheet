@@ -25,12 +25,7 @@ class AlertSheetButton: UIButton {
     }
 
     private func configureAppearance() {
-        backgroundColor = UIColor(
-            red: 112/255.0,
-            green: 206/255.0,
-            blue: 216/255.0,
-            alpha: 1.0
-        )
+        backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         opaque = true
         setBackgroundImage(UIImage(named: "btn-connect"), forState: UIControlState.Normal)
         setBackgroundImage(UIImage(named: "btn-connect-tap"), forState: UIControlState.Highlighted)

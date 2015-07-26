@@ -26,12 +26,7 @@ class DemoButton: UIButton {
 
     private func configureAppearance() {
         setTitle("Display Alert Sheet", forState: UIControlState.Normal)
-        backgroundColor = UIColor(
-            red: 112/255.0,
-            green: 206/255.0,
-            blue: 216/255.0,
-            alpha: 1.0
-        )
+        backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         layer.cornerRadius = DemoButtonAppearance.cornerRadius
         opaque = true
         showsTouchWhenHighlighted = true

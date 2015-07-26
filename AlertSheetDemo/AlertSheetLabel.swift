@@ -30,12 +30,7 @@ class AlertSheetLabel: UILabel {
         lineBreakMode = NSLineBreakMode.ByWordWrapping
         font = UIFont(name: "HelveticaNeue-Medium", size: 12.0)
         textColor = UIColor.whiteColor()
-        backgroundColor = UIColor(
-            red: 112/255.0,
-            green: 206/255.0,
-            blue: 216/255.0,
-            alpha: 1.0
-        )
+        backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         opaque = true
     }
 }
