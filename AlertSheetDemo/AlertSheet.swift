@@ -99,6 +99,28 @@ class AlertSheet: UIView {
 
     private var _sheetColor: UIColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0) // Default sheet color
 
+    /// The font for all of the alert sheet elements. The default is the system font size 13.
+    var sheetFont: UIFont {
+        get {
+            return _sheetFont
+        }
+
+        set(newFont) {
+            _sheetFont = newFont
+
+            let titleLabel = self.viewWithTag(Tags.titleLabel) as? UILabel
+            titleLabel?.font = newFont
+
+            let messageLabel = self.viewWithTag(Tags.messageLabel) as? UILabel
+            messageLabel?.font = newFont
+
+            let button = self.viewWithTag(Tags.button) as? UIButton
+            button?.titleLabel?.font = newFont
+        }
+    }
+
+    private var _sheetFont: UIFont = UIFont.systemFontOfSize(13.0) // Default sheet font
+
     /// The receiver's delegate or nil if it doesn't have a delegate
     var delegate: AlertSheetDelegate?
 
@@ -331,7 +353,7 @@ class AlertSheet: UIView {
     private func titleLabel(title: String) -> UILabel {
         let titleLabel = AlertSheetLabel()
         titleLabel.backgroundColor = sheetColor
-        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+        titleLabel.font = sheetFont
         titleLabel.numberOfLines = 1
         titleLabel.tag = Tags.titleLabel
         titleLabel.text = title
@@ -344,6 +366,7 @@ class AlertSheet: UIView {
     private func messageLabel(message: String) -> UILabel {
         let messageLabel = AlertSheetLabel()
         messageLabel.tag = Tags.messageLabel
+        messageLabel.font = sheetFont
         messageLabel.text = message
 
         return messageLabel
@@ -354,6 +377,7 @@ class AlertSheet: UIView {
     private func button(title: String) -> UIButton {
         let button = AlertSheetButton()
         button.backgroundColor = sheetColor
+        button.titleLabel?.font = sheetFont
         button.addTarget(self, action: "didPressButton:", forControlEvents: UIControlEvents.TouchUpInside)
         button.setTitle(title, forState: UIControlState.Normal)
         button.tag = Tags.button
