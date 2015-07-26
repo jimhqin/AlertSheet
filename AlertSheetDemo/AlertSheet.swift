@@ -77,6 +77,28 @@ An AlertSheet object displays an alert sheet to the user. After initializing the
 */
 class AlertSheet: UIView {
 
+    /// The background color of the alert sheet.
+    var sheetColor: UIColor {
+        get {
+            return _sheetColor
+        }
+
+        set(newColor) {
+            _sheetColor = newColor
+
+            let titleLabel = self.viewWithTag(Tags.titleLabel)
+            titleLabel?.backgroundColor = newColor
+
+            let messageLabel = self.viewWithTag(Tags.messageLabel)
+            messageLabel?.backgroundColor = newColor
+
+            let button = self.viewWithTag(Tags.button)
+            button?.backgroundColor = newColor
+        }
+    }
+
+    private var _sheetColor: UIColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0) // Default sheet color
+
     /// The receiver's delegate or nil if it doesn't have a delegate
     var delegate: AlertSheetDelegate?
 
@@ -112,12 +134,7 @@ class AlertSheet: UIView {
     }
 
     private func fillBackgroundColor(context: CGContextRef, rect: CGRect) {
-        CGContextSetFillColorWithColor(context, UIColor(
-            red: 112/255.0,
-            green: 206/255.0,
-            blue: 216/255.0,
-            alpha: 1.0
-            ).CGColor)
+        CGContextSetFillColorWithColor(context, sheetColor.CGColor)
     }
 
     // MARK: - Initializers
@@ -302,12 +319,7 @@ class AlertSheet: UIView {
     private func imageView(image: UIImage) -> UIImageView {
         let imageView = UIImageView(image: image)
         imageView.contentMode = UIViewContentMode.Center
-        imageView.backgroundColor = UIColor(
-            red: 112/255.0,
-            green: 206/255.0,
-            blue: 216/255.0,
-            alpha: 1.0
-        )
+        imageView.backgroundColor = sheetColor
         imageView.opaque = true
         imageView.tag = Tags.imageView
 
@@ -318,6 +330,7 @@ class AlertSheet: UIView {
 
     private func titleLabel(title: String) -> UILabel {
         let titleLabel = AlertSheetLabel()
+        titleLabel.backgroundColor = sheetColor
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
         titleLabel.numberOfLines = 1
         titleLabel.tag = Tags.titleLabel
@@ -340,6 +353,7 @@ class AlertSheet: UIView {
 
     private func button(title: String) -> UIButton {
         let button = AlertSheetButton()
+        button.backgroundColor = sheetColor
         button.addTarget(self, action: "didPressButton:", forControlEvents: UIControlEvents.TouchUpInside)
         button.setTitle(title, forState: UIControlState.Normal)
         button.tag = Tags.button
