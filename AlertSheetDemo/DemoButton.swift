@@ -17,7 +17,7 @@ class DemoButton: UIButton {
     }
 
     convenience init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: .zero)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -25,7 +25,7 @@ class DemoButton: UIButton {
     }
 
     private func configureAppearance() {
-        setTitle("Display Alert Sheet", forState: UIControlState.Normal)
+        setTitle("Display Alert Sheet", forState: .Normal)
         backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         layer.cornerRadius = DemoButtonAppearance.cornerRadius
         opaque = true

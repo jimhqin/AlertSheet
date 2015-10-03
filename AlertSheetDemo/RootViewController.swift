@@ -21,14 +21,14 @@ final class RootViewController: UIViewController, AlertSheetDelegate {
     override func loadView() {
         let applicationFrame = UIScreen.mainScreen().applicationFrame
         let contentView = UIView(frame: applicationFrame)
-        contentView.backgroundColor = UIColor.whiteColor()
+        contentView.backgroundColor = .whiteColor()
         view = contentView
 
-        let demoButton = DemoButton(frame: CGRect.zeroRect)
-        demoButton.addTarget(self, action: "didPressDemoButton", forControlEvents: UIControlEvents.TouchUpInside)
+        let demoButton = DemoButton(frame: .zero)
+        demoButton.addTarget(self, action: "didPressDemoButton", forControlEvents: .TouchUpInside)
         view.addSubview(demoButton)
 
-        demoButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        demoButton.translatesAutoresizingMaskIntoConstraints = false
         let viewsDictionary = ["demoButton": demoButton]
 
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
@@ -70,10 +70,10 @@ final class RootViewController: UIViewController, AlertSheetDelegate {
     private func centerHorizontallyConstraint(forView view: UIView) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(
             item: view,
-            attribute: NSLayoutAttribute.CenterX,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: .CenterX,
+            relatedBy: .Equal,
             toItem: view.superview!,
-            attribute: NSLayoutAttribute.CenterX,
+            attribute: .CenterX,
             multiplier: 1.0,
             constant: 0.0
         )

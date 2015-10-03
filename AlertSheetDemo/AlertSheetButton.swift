@@ -17,7 +17,7 @@ class AlertSheetButton: UIButton {
     }
 
     convenience init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: .zero)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -27,9 +27,9 @@ class AlertSheetButton: UIButton {
     private func configureAppearance() {
         backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         opaque = true
-        setBackgroundImage(UIImage(named: "btn-connect"), forState: UIControlState.Normal)
-        setBackgroundImage(UIImage(named: "btn-connect-tap"), forState: UIControlState.Highlighted)
-        setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        setBackgroundImage(UIImage(named: "btn-connect"), forState: .Normal)
+        setBackgroundImage(UIImage(named: "btn-connect-tap"), forState: .Highlighted)
+        setTitleColor(.whiteColor(), forState: .Normal)
         titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 13)
         layer.borderColor = UIColor.whiteColor().CGColor
         layer.borderWidth = 1.0

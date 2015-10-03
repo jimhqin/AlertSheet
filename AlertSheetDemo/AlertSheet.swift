@@ -132,10 +132,12 @@ class AlertSheet: UIView {
 
     private func drawAlertSheetRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        drawBottomRect(context, rect: rect)
-        drawTopCurve(context, rect: rect)
-        fillBackgroundColor(context, rect: rect)
-        CGContextFillPath(context)
+
+        // We are subclassing UIView so we will always get a valid context pushed onto the stack.
+        drawBottomRect(context!, rect: rect)
+        drawTopCurve(context!, rect: rect)
+        fillBackgroundColor(context!, rect: rect)
+        CGContextFillPath(context!)
     }
 
     private func drawBottomRect(context: CGContextRef, rect: CGRect) {
@@ -181,28 +183,32 @@ class AlertSheet: UIView {
 
         configureSheetAppearance()
 
-        var viewsDictionary = [NSObject: AnyObject]()
+        var viewsDictionary = [String: AnyObject]()
 
         if let anImage = image {
             let anImageView = imageView(anImage)
+            anImageView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(anImageView)
             viewsDictionary["imageView"] = anImageView
         }
 
         if let aTitle = title {
             let aTitleLabel = titleLabel(aTitle)
+            aTitleLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(aTitleLabel)
             viewsDictionary["titleLabel"] = aTitleLabel
         }
 
         if let aMessage = message {
             let aMessageLabel = messageLabel(aMessage)
+            aMessageLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(aMessageLabel)
             viewsDictionary["messageLabel"] = aMessageLabel
         }
 
         if let aButtonTitle = buttonTitle {
             let aButton = button(aButtonTitle)
+            aButton.translatesAutoresizingMaskIntoConstraints = false
             addSubview(aButton)
             viewsDictionary["button"] = aButton
         }
@@ -224,17 +230,13 @@ class AlertSheet: UIView {
 
     // MARK: - AutoLayout Constraints
 
-    private func configureContraints(forViews views: [NSObject: AnyObject]) {
-        for view in views.values {
-            view.setTranslatesAutoresizingMaskIntoConstraints(false)
-        }
-
+    private func configureContraints(forViews views: [String: AnyObject]) {
         // ImageView
 
         if let imageView = views["imageView"] as? UIImageView {
             let topSpaceToSuperview = NSLayoutConstraint.constraintsWithVisualFormat(
                 "V:|-\(SubviewMargins.viewTopToImage)-[imageView(==\(ImageViewBounds.height))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -242,7 +244,7 @@ class AlertSheet: UIView {
 
             let imageViewConstantWidth = NSLayoutConstraint.constraintsWithVisualFormat(
                 "H:[imageView(==\(ImageViewBounds.width))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -257,7 +259,7 @@ class AlertSheet: UIView {
         if let titleLabel = views["titleLabel"] as? UILabel {
             let topSpaceToSuperview = NSLayoutConstraint.constraintsWithVisualFormat(
                 "V:|-\(SubviewMargins.viewTopToTitle)-[titleLabel(==\(TitleLabelBounds.maxHeight))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -265,7 +267,7 @@ class AlertSheet: UIView {
 
             let constantWidth = NSLayoutConstraint.constraintsWithVisualFormat(
                 "H:[titleLabel(==\(TitleLabelBounds.maxWidth))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -280,7 +282,7 @@ class AlertSheet: UIView {
         if let messageLabel = views["messageLabel"] as? UILabel {
             let topSpaceToSuperview = NSLayoutConstraint.constraintsWithVisualFormat(
                 "V:|-\(SubviewMargins.viewTopToMessage)-[messageLabel(==\(MessageLabelBounds.maxHeight))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -288,7 +290,7 @@ class AlertSheet: UIView {
 
             let messageLabelConstantWidth = NSLayoutConstraint.constraintsWithVisualFormat(
                 "H:[messageLabel(==\(MessageLabelBounds.maxWidth))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -303,7 +305,7 @@ class AlertSheet: UIView {
         if let button = views["button"] as? UIButton {
             let topSpaceToSuperview = NSLayoutConstraint.constraintsWithVisualFormat(
                 "V:|-\(SubviewMargins.viewTopToButton)-[button(==\(ButtonBounds.height))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -311,7 +313,7 @@ class AlertSheet: UIView {
 
             let buttonConstantWidth = NSLayoutConstraint.constraintsWithVisualFormat(
                 "H:[button(==\(ButtonBounds.width))]",
-                options: NSLayoutFormatOptions(0),
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
             )
@@ -340,7 +342,7 @@ class AlertSheet: UIView {
 
     private func imageView(image: UIImage) -> UIImageView {
         let imageView = UIImageView(image: image)
-        imageView.contentMode = UIViewContentMode.Center
+        imageView.contentMode = .Center
         imageView.backgroundColor = sheetColor
         imageView.opaque = true
         imageView.tag = Tags.imageView
@@ -378,8 +380,8 @@ class AlertSheet: UIView {
         let button = AlertSheetButton()
         button.backgroundColor = sheetColor
         button.titleLabel?.font = sheetFont
-        button.addTarget(self, action: "didPressButton:", forControlEvents: UIControlEvents.TouchUpInside)
-        button.setTitle(title, forState: UIControlState.Normal)
+        button.addTarget(self, action: "didPressButton:", forControlEvents: .TouchUpInside)
+        button.setTitle(title, forState: .Normal)
         button.tag = Tags.button
 
         return button

@@ -17,7 +17,7 @@ class AlertSheetLabel: UILabel {
     }
 
     convenience init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: CGRect.zero)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -26,10 +26,10 @@ class AlertSheetLabel: UILabel {
 
     private func configureAppearance() {
         numberOfLines = 0
-        textAlignment = NSTextAlignment.Center
-        lineBreakMode = NSLineBreakMode.ByWordWrapping
+        textAlignment = .Center
+        lineBreakMode = .ByWordWrapping
         font = UIFont(name: "HelveticaNeue-Medium", size: 12.0)
-        textColor = UIColor.whiteColor()
+        textColor = .whiteColor()
         backgroundColor = UIColor(red: 112/255.0, green: 206/255.0, blue: 216/255.0, alpha: 1.0)
         opaque = true
     }
